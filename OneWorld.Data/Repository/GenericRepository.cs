@@ -14,10 +14,11 @@ namespace OneWorld.Data.Repository
         protected DbContext _entities;
         protected readonly IDbSet<T> _dbset;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(IDatabaseFactory dbFactory)
         {
-            _entities = context;
-            _dbset = context.Set<T>();
+            _entities = dbFactory.Get();
+            _dbset = _entities.Set<T>();
+            
         }
 
         public virtual IEnumerable<T> GetAll()

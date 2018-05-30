@@ -20,8 +20,20 @@ namespace OneWorld.WebAPI.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-              IEnumerable<Supplier> listSupplier= _service.GetAll();
             return new string[] { "value1", "value2" };
+        }
+        [HttpGet]
+        [ActionName(name: "AllSupplier")]
+        public IEnumerable<Supplier> GetAllSupplier()
+        {
+            IEnumerable<Supplier> listData = _service.GetAll();
+
+            if (listData.Count() > 0)
+            {
+                return listData;
+            }
+            return listData;
+            //return _service.GetAllSupplier(); 
         }
 
         // GET api/values/5

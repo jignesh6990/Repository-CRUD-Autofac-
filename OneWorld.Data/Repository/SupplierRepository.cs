@@ -10,8 +10,8 @@ namespace OneWorld.Data.Repository
 {
    public class SupplierRepository:GenericRepository<Supplier>,ISupplierRepository
     {
-        public SupplierRepository(DbContext context)
-            :base(context)
+        public SupplierRepository(IDatabaseFactory dbFactory)
+            :base(dbFactory)
         { }
 
         public override IEnumerable<Supplier> GetAll()

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\SupplierConfiguration.cs" />
     <Compile Include="DatabaseFactory.cs" />
     <Compile Include="ERDDBContext.cs" />
     <Compile Include="IDatabaseFactory.cs" />
@@ -70,6 +71,7 @@
       <Name>OneWorld.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
