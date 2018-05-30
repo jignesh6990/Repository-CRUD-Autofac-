@@ -12,7 +12,7 @@ namespace OneWorld.Model
    public class Supplier:Entity<int>
     {
         public override int Id { get; set; }
-
+        [Required]
         public string CompanyName { get; set; }
 
         public string ContactName { get; set; }

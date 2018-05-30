@@ -56,5 +56,39 @@ namespace OneWorld.WebAPI.Controllers
         public void Delete(int id)
         {
         }
+
+        [HttpPost]
+        public HttpResponseMessage AddSupplier([FromBody] Supplier supplier)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = _service.AddSupplier(supplier);
+                return Request.CreateResponse(HttpStatusCode.OK,result);
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+        }
+
+        public HttpResponseMessage UpdateSupplier([FromBody] Supplier supplier)
+        {
+            if(ModelState.IsValid)
+            {
+                if(supplier.Id>0)
+                {
+                    bool isSuccess = _service.UpdateSupplier(supplier);
+                    if(isSuccess)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.OK, "Id must be greater than 0");
+                    }
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest,"Id must be greater than 0");
+                }
+            }
+            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+        }
     }
 }

@@ -9,7 +9,11 @@ namespace OneWorld.Service
 {
   public interface ISupplierService:IEntityService<Supplier>
     {
-        //List<Supplier> GetAllSupplier();
-        IEnumerable<Supplier> GetAllSupplier();
+        
+        IEnumerable<Supplier> GetAllSupplier();  //Get All
+
+        Supplier AddSupplier(Supplier supplier); //Add New Supplier
+
+        bool UpdateSupplier(Supplier supplier); //Update Supplier details
     }
 }

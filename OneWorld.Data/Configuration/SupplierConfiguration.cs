@@ -25,7 +25,7 @@ namespace OneWorld.Data.Configuration
             //CompanyName
             Property(p => p.CompanyName).HasColumnName("CompanyName").HasColumnType("nvarchar").HasMaxLength(40).IsRequired();
 
-
+            Property(p => p.CompanyName).IsRequired();
         }
     }
 }

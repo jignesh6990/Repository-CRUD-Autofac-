@@ -19,14 +19,41 @@ namespace OneWorld.Service
             _repository = repository;
         }
 
+        /// <summary>
+        /// Get All Suppliers
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<Supplier> ISupplierService.GetAllSupplier()
         {
-           return _repository.GetAll();
+            return _repository.GetAll();
         }
 
-        //List<Supplier> ISupplierService.GetAllSupplier()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        /// <summary>
+        /// Add Supplier
+        /// </summary>
+        /// <param name="supplier"></param>
+        /// <returns></returns>
+        Supplier ISupplierService.AddSupplier(Supplier supplier)
+        {
+            return _repository.AddSupplier(supplier);
+        }
+
+        /// <summary>
+        /// Update Supplier details
+        /// </summary>
+        /// <param name="supplier"></param>
+        /// <returns></returns>
+        bool ISupplierService.UpdateSupplier(Supplier supplier)
+        {
+            bool isSuccess = false;
+            Supplier supplierUser = _repository.GetSupplierById(supplier.Id);
+            if (supplierUser != null && supplierUser.Id > 0)
+            {
+              isSuccess= _repository.UpdateSupplier(supplier);
+            }
+
+            return isSuccess;
+        }
+
     }
 }
